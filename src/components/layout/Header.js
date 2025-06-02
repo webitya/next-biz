@@ -1,0 +1,92 @@
+"use client"
+import { useState } from "react"
+import Link from "next/link"
+import { Menu, Close, Phone, Email } from "@mui/icons-material"
+
+export default function Header() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
+  const navigation = [
+    { name: "Home", href: "/" },
+    { name: "About", href: "/about" },
+    { name: "Services", href: "/services" },
+    { name: "Blog", href: "/blog" },
+    { name: "Contact", href: "/contact" },
+  ]
+
+  return (
+    <header className="fixed top-0 w-full bg-black/90 backdrop-blur-md z-50 border-b border-purple-500/20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center py-4">
+          {/* Logo */}
+          <Link href="/" className="flex items-center space-x-2">
+            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-lg flex items-center justify-center">
+              <span className="text-white font-bold text-xl">N</span>
+            </div>
+            <span className="text-white font-bold text-xl">NextBiz.in</span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex space-x-8">
+            {navigation.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className="text-gray-300 hover:text-purple-400 transition-colors duration-200 font-medium"
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          {/* Contact Info */}
+          <div className="hidden lg:flex items-center space-x-4 text-sm text-gray-300">
+            <div className="flex items-center space-x-1">
+              <Phone className="w-4 h-4" />
+              <span>9693245941</span>
+            </div>
+            <div className="flex items-center space-x-1">
+              <Email className="w-4 h-4" />
+              <span>contact@nextbiz.in</span>
+            </div>
+          </div>
+
+          {/* Mobile menu button */}
+          <button className="md:hidden text-white" onClick={() => setIsMenuOpen(!isMenuOpen)}>
+            {isMenuOpen ? <Close /> : <Menu />}
+          </button>
+        </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden py-4 border-t border-purple-500/20">
+            <nav className="flex flex-col space-y-4">
+              {navigation.map((item) => (
+                <Link
+                  key={item.name}
+                  href={item.href}
+                  className="text-gray-300 hover:text-purple-400 transition-colors duration-200 font-medium"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              <div className="pt-4 border-t border-purple-500/20">
+                <div className="flex flex-col space-y-2 text-sm text-gray-300">
+                  <div className="flex items-center space-x-2">
+                    <Phone className="w-4 h-4" />
+                    <span>9693245941</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <Email className="w-4 h-4" />
+                    <span>contact@nextbiz.in</span>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  )
+}
