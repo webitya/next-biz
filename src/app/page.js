@@ -97,7 +97,7 @@ export default function HomePage() {
             image: "https://nextbiz.in/logo.png",
             "@id": "https://nextbiz.in",
             url: "https://nextbiz.in",
-            telephone: "+91-9117834352",
+            telephone: "+91-9263512763",
             priceRange: "₹₹",
             address: {
               "@type": "PostalAddress",
@@ -414,7 +414,7 @@ export default function HomePage() {
                   <ArrowForward className="w-5 h-5" />
                 </Link>
                 <a
-                  href="tel:+919117834352"
+                  href="tel:+919263512763"
                   className="border border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-600 hover:text-white transition-all duration-300 flex items-center justify-center shadow-lg"
                 >
                   <Phone className="w-5 h-5 mr-2" />

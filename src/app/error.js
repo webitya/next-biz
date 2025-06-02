@@ -40,8 +40,8 @@ export default function Error({ error, reset }) {
           <h3 className="text-lg font-semibold mb-3">Still having issues?</h3>
           <p className="text-gray-300 text-sm mb-4">Contact our support team for immediate assistance.</p>
           <div className="space-y-2 text-sm">
-            <a href="tel:+919117834352" className="block text-purple-400 hover:text-purple-300 transition-colors">
-              📞 +91 9117834352
+            <a href="tel:+919263512763" className="block text-purple-400 hover:text-purple-300 transition-colors">
+              📞 +91 9263512763
             </a>
             <a
               href="mailto:contact@nextbiz.in"

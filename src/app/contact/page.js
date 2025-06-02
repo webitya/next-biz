@@ -4,7 +4,7 @@ import ContactForm from "../../components/ui/ContactForm"
 export const metadata = {
   title: "Contact Ranchi's Top Digital Marketing Agency | NextBiz.in",
   description:
-    "Get in touch with NextBiz.in, Ranchi's leading digital marketing agency. Visit our office in Ranchi, Jharkhand or call us at +91 9117834352 for a free consultation.",
+    "Get in touch with NextBiz.in, Ranchi's leading digital marketing agency. Visit our office in Ranchi, Jharkhand or call us at +91 9263512763 for a free consultation.",
   keywords: [
     "contact digital marketing agency Ranchi",
     "NextBiz contact Jharkhand",
@@ -21,15 +21,15 @@ export default function ContactPage() {
     {
       icon: <Phone className="w-8 h-8" />,
       title: "Phone",
-      details: ["+91 9117834352"],
-      action: "tel:+919117834352",
+      details: ["+91 9263512763"],
+      action: "tel:+919263512763",
       color: "blue",
     },
     {
       icon: <WhatsApp className="w-8 h-8" />,
       title: "WhatsApp",
-      details: ["+91 9117834352"],
-      action: "https://wa.me/919117834352",
+      details: ["+91 9263512763"],
+      action: "https://wa.me/919263512763",
       color: "green",
     },
     {
@@ -93,7 +93,7 @@ export default function ContactPage() {
             image: "https://nextbiz.in/logo.png",
             "@id": "https://nextbiz.in",
             url: "https://nextbiz.in",
-            telephone: "+91-9117834352",
+            telephone: "+91-9263512763",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Main Road",
@@ -292,7 +292,7 @@ export default function ContactPage() {
                   experts will identify opportunities to improve your online presence and ROI.
                 </p>
                 <a
-                  href="tel:+919117834352"
+                  href="tel:+919263512763"
                   className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-300"
                 >
                   <Phone className="w-5 h-5 mr-2" />
@@ -357,7 +357,7 @@ export default function ContactPage() {
               {
                 question: "Can I visit your office in Ranchi for a consultation?",
                 answer:
-                  "We welcome in-person consultations at our Ranchi office. Being locally based in Jharkhand allows us to provide face-to-face meetings that build stronger relationships with our clients. Please call us at +91 9117834352 to schedule an appointment.",
+                  "We welcome in-person consultations at our Ranchi office. Being locally based in Jharkhand allows us to provide face-to-face meetings that build stronger relationships with our clients. Please call us at +91 9263512763 to schedule an appointment.",
               },
             ].map((faq, index) => (
               <div key={index} className="bg-white rounded-2xl shadow-lg border border-gray-100 p-8">

@@ -43,7 +43,7 @@ export default function Header() {
           <div className="hidden lg:flex items-center space-x-4 text-sm text-gray-600">
             <div className="flex items-center space-x-1">
               <Phone className="w-4 h-4 text-blue-600" />
-              <span>9117834352</span>
+              <span>9263512763</span>
             </div>
             <div className="flex items-center space-x-1">
               <Email className="w-4 h-4 text-blue-600" />
@@ -75,7 +75,7 @@ export default function Header() {
                 <div className="flex flex-col space-y-2 text-sm text-gray-600">
                   <div className="flex items-center space-x-2">
                     <Phone className="w-4 h-4 text-blue-600" />
-                    <span>9117834352</span>
+                    <span>9263512763</span>
                   </div>
                   <div className="flex items-center space-x-2">
                     <Email className="w-4 h-4 text-blue-600" />

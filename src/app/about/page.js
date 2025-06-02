@@ -345,7 +345,7 @@ export default function AboutPage() {
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
                 <div className="flex items-center justify-center space-x-2 text-gray-600">
                   <Phone className="w-5 h-5 text-blue-600" />
-                  <span>+91 9117834352</span>
+                  <span>+91 9263512763</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2 text-gray-600">
                   <Email className="w-5 h-5 text-blue-600" />
