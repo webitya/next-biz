@@ -158,12 +158,12 @@ export default function HomePage() {
             <span className="text-lg">Ranchi, Jharkhand</span>
           </div>
           <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold mb-6">
-            <span className="gradient-text">Ranchi's Premier</span>
+            <span className="gradient-text">Ranchi s Premier</span>
             <br />
             Digital Marketing Agency
           </h1>
           <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Transform your business with Jharkhand's leading digital marketing experts. Specialized in Google Ads,
+            Transform your business with Jharkhand s leading digital marketing experts. Specialized in Google Ads,
             Facebook Ads, Instagram Ads, LinkedIn Ads, and Email Marketing for local businesses in Ranchi.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -225,14 +225,14 @@ export default function HomePage() {
             <div className="glass-effect p-8 rounded-lg hover:bg-white/20 transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4 text-purple-400">Local Market Expertise</h3>
               <p className="text-gray-300">
-                We understand Ranchi's unique market dynamics, consumer behavior, and competitive landscape. Our
+                We understand Ranchi s unique market dynamics, consumer behavior, and competitive landscape. Our
                 strategies are tailored specifically for success in Jharkhand.
               </p>
             </div>
             <div className="glass-effect p-8 rounded-lg hover:bg-white/20 transition-all duration-300">
               <h3 className="text-xl font-semibold mb-4 text-purple-400">Proven Results</h3>
               <p className="text-gray-300">
-                We've helped over 100 businesses in Ranchi and across Jharkhand achieve measurable growth through our
+                We have helped over 100 businesses in Ranchi and across Jharkhand achieve measurable growth through our
                 data-driven digital marketing strategies.
               </p>
             </div>
@@ -240,7 +240,7 @@ export default function HomePage() {
               <h3 className="text-xl font-semibold mb-4 text-purple-400">Personalized Service</h3>
               <p className="text-gray-300">
                 As a Ranchi-based agency, we provide face-to-face consultations and personalized service that national
-                agencies can't match. We're invested in your success.
+                agencies can not match. We have invested in your success.
               </p>
             </div>
           </div>
@@ -262,7 +262,7 @@ export default function HomePage() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="glass-effect p-8 rounded-lg">
-                <div className="text-2xl text-purple-400 mb-4">"</div>
+                <div className="text-2xl text-purple-400 mb-4"></div>
                 <p className="text-gray-300 mb-6 italic">{testimonial.quote}</p>
                 <div>
                   <p className="font-semibold text-white">{testimonial.author}</p>
@@ -282,7 +282,7 @@ export default function HomePage() {
               Serving Businesses Throughout <span className="gradient-text">Jharkhand</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              While we're based in Ranchi, we provide digital marketing services to businesses across Jharkhand.
+              While we are based in Ranchi, we provide digital marketing services to businesses across Jharkhand.
             </p>
           </div>
 

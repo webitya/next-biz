@@ -133,7 +133,7 @@ export default function ContactPage() {
             </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Ready to transform your business with expert digital marketing? Visit our office in Ranchi or reach out
-              online. We're here to help businesses across Jharkhand succeed.
+              online. We re here to help businesses across Jharkhand succeed.
             </p>
           </div>
         </div>
@@ -175,7 +175,7 @@ export default function ContactPage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Visit Our Office in Ranchi</h2>
             <p className="text-gray-300 max-w-3xl mx-auto">
-              We're conveniently located in the heart of Ranchi, Jharkhand. Stop by for a free consultation about your
+              We re conveniently located in the heart of Ranchi, Jharkhand. Stop by for a free consultation about your
               digital marketing needs.
             </p>
           </div>

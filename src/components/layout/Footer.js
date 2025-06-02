@@ -15,7 +15,7 @@ export default function Footer() {
               <span className="text-white font-bold text-xl">NextBiz.in</span>
             </div>
             <p className="text-gray-300 mb-6 max-w-md">
-              Ranchi's leading digital marketing agency. We specialize in Performance Marketing, Google Ads, Meta Ads,
+              Ranchi s leading digital marketing agency. We specialize in Performance Marketing, Google Ads, Meta Ads,
               LinkedIn Ads, and Email Marketing for businesses across Jharkhand.
             </p>
             <div className="space-y-2">

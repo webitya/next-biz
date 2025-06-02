@@ -29,10 +29,7 @@ export default function Error({ error, reset }) {
             <span>Try Again</span>
           </button>
 
-          <a
-            href="/"
-            className="w-full border border-purple-500 text-purple-400 py-3 px-6 rounded-lg font-semibold hover:bg-purple-500 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2"
-          >
+          <a href="/" className="w-full border border-purple-500 text-purple-400 py-3 px-6 rounded-lg font-semibold hover:bg-purple-500 hover:text-white transition-all duration-300 flex items-center justify-center space-x-2">
             <Home className="w-5 h-5" />
             <span>Go Home</span>
           </a>

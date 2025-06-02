@@ -99,7 +99,7 @@ export default function BlogPage() {
       <section className="py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <div className="glass-effect p-12 rounded-2xl">
-            <h2 className="text-3xl font-bold mb-6">Stay Updated with Ranchi's Digital Marketing Trends</h2>
+            <h2 className="text-3xl font-bold mb-6">Stay Updated with Ranchi s Digital Marketing Trends</h2>
             <p className="text-xl text-gray-300 mb-8">
               Subscribe to our newsletter and never miss the latest insights and updates specifically for businesses in
               Jharkhand.

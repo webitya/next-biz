@@ -183,7 +183,7 @@ export default function BlogPost({ params }) {
           <div className="glass-effect p-12 rounded-2xl">
             <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
             <p className="text-xl text-gray-300 mb-8">
-              Let's discuss how our solutions can help you achieve your business goals.
+              Let s discuss how our solutions can help you achieve your business goals.
             </p>
             <Link
               href="/contact"

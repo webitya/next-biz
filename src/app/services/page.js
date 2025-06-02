@@ -267,7 +267,7 @@ export default function ServicesPage() {
               Trusted by Businesses Across <span className="gradient-text">Jharkhand</span>
             </h2>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We've helped hundreds of businesses in Ranchi and throughout Jharkhand achieve their digital marketing
+              We have helped hundreds of businesses in Ranchi and throughout Jharkhand achieve their digital marketing
               goals.
             </p>
           </div>
@@ -318,7 +318,7 @@ export default function ServicesPage() {
           <div className="glass-effect p-12 rounded-2xl">
             <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Grow Your Business in Ranchi?</h2>
             <p className="text-xl text-gray-300 mb-8">
-              Let's discuss your digital marketing requirements and create a customized solution for your business in
+              Let s discuss your digital marketing requirements and create a customized solution for your business in
               Jharkhand.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

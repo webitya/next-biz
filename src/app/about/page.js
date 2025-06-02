@@ -30,7 +30,7 @@ export default function AboutPage() {
         "Your success is our priority. We tailor solutions to meet the unique needs of Jharkhand businesses.",
     },
     {
-      icon: <Award className="w-8 h-8" />,
+      icon: <MilitaryTech className="w-8 h-8" />,
       title: "Excellence",
       description: "We maintain the highest standards in all our digital marketing campaigns and strategies.",
     },
@@ -151,7 +151,7 @@ export default function AboutPage() {
           <div className="glass-effect p-12 rounded-2xl">
             <h3 className="text-2xl font-bold mb-6 gradient-text">Ready to Work Together?</h3>
             <p className="text-gray-300 mb-8">
-              We're always excited to take on new challenges and help businesses in Ranchi achieve their goals. Let's
+              We are always excited to take on new challenges and help businesses in Ranchi achieve their goals. Let s
               discuss how we can help transform your business with expert digital marketing.
             </p>
             <a
