@@ -1,4 +1,15 @@
-import { TrendingUp, Analytics, Business, Email, Facebook, LinkedIn } from "@mui/icons-material"
+import {
+  TrendingUp,
+  Analytics,
+  Business,
+  Email,
+  Facebook,
+  LinkedIn,
+  CheckCircle,
+  Star,
+  Support,
+  LocationOn,
+} from "@mui/icons-material"
 import ServicesScene from "../../components/3d/ServicesScene"
 
 export const metadata = {
@@ -27,6 +38,7 @@ export default function ServicesPage() {
         "Data-driven performance marketing strategies that maximize ROI and drive measurable business growth for companies in Ranchi and across Jharkhand.",
       features: ["ROI Optimization", "Conversion Tracking", "A/B Testing", "Performance Analytics"],
       price: "Starting from ₹25,000",
+      color: "blue",
     },
     {
       icon: <Analytics className="w-12 h-12" />,
@@ -35,6 +47,7 @@ export default function ServicesPage() {
         "Expert Google Ads campaign management including Search, Display, Shopping, and YouTube ads to maximize your online visibility in Ranchi and throughout Jharkhand.",
       features: ["Local Search Campaigns", "Display Advertising", "Shopping Ads", "YouTube Marketing"],
       price: "Starting from ₹20,000",
+      color: "purple",
     },
     {
       icon: <Facebook className="w-12 h-12" />,
@@ -43,6 +56,7 @@ export default function ServicesPage() {
         "Strategic Meta advertising campaigns across Facebook and Instagram to reach your target audience in Ranchi and drive conversions for Jharkhand businesses.",
       features: ["Facebook Ads", "Instagram Marketing", "Local Audience Targeting", "Creative Optimization"],
       price: "Starting from ₹18,000",
+      color: "indigo",
     },
     {
       icon: <LinkedIn className="w-12 h-12" />,
@@ -51,6 +65,7 @@ export default function ServicesPage() {
         "Professional B2B marketing campaigns on LinkedIn to connect with decision-makers and generate high-quality leads for businesses in Ranchi and Jharkhand.",
       features: ["Sponsored Content", "Lead Generation", "B2B Targeting", "Professional Networking"],
       price: "Starting from ₹22,000",
+      color: "cyan",
     },
     {
       icon: <Email className="w-12 h-12" />,
@@ -59,6 +74,7 @@ export default function ServicesPage() {
         "Comprehensive email marketing campaigns that nurture leads, retain customers, and drive repeat business for companies throughout Jharkhand.",
       features: ["Campaign Design", "Automation Setup", "List Management", "Performance Tracking"],
       price: "Starting from ₹15,000",
+      color: "teal",
     },
     {
       icon: <Business className="w-12 h-12" />,
@@ -67,6 +83,7 @@ export default function ServicesPage() {
         "Specialized marketing solutions for local businesses in Ranchi and Jharkhand to increase visibility, foot traffic, and sales in your community.",
       features: ["Google Business Profile", "Local SEO", "Geo-Targeted Ads", "Community Engagement"],
       price: "Starting from ₹20,000",
+      color: "sky",
     },
   ]
 
@@ -103,7 +120,7 @@ export default function ServicesPage() {
   ]
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 bg-gradient-to-b from-blue-50 to-white">
       {/* Schema.org structured data */}
       <script
         type="application/ld+json"
@@ -200,99 +217,107 @@ export default function ServicesPage() {
       />
 
       {/* Hero Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h1 className="text-4xl sm:text-5xl font-bold mb-6">
-              Digital Marketing Services in <span className="gradient-text">Ranchi</span>
+      <section className="relative min-h-[80vh] flex items-center justify-center px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-blue-50 to-purple-50 opacity-90"></div>
+          <div className="absolute inset-0 bg-[url('/placeholder.svg?height=1080&width=1920')] bg-cover bg-center opacity-10"></div>
+        </div>
+
+        {/* 3D Scene as Background */}
+        <div className="absolute top-0 right-0 w-full h-full z-0 opacity-40">
+          <ServicesScene />
+        </div>
+
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="text-center mb-8">
+            <div className="mb-6 flex items-center justify-center text-blue-600">
+              <LocationOn className="w-5 h-5 mr-2" />
+              <span className="text-lg font-medium">Ranchi, Jharkhand</span>
+            </div>
+            <h1 className="text-4xl sm:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Digital Marketing Services in Ranchi
             </h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Comprehensive digital marketing solutions designed to help businesses in Ranchi and across Jharkhand
               achieve measurable growth and ROI.
             </p>
           </div>
-
-          {/* 3D Scene */}
-          <ServicesScene />
         </div>
       </section>
 
       {/* Services Grid */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-3xl font-bold mb-12 text-center">
-            Our Digital Marketing Services in <span className="gradient-text">Jharkhand</span>
+          <h2 className="text-3xl font-bold mb-4 text-center text-gray-800">
+            Our Digital Marketing Services in{" "}
+            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Jharkhand
+            </span>
           </h2>
+          <p className="text-gray-600 text-center max-w-3xl mx-auto mb-12">
+            Tailored solutions to help your business thrive in the digital landscape with strategies specifically
+            designed for the Jharkhand market.
+          </p>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="glass-effect p-8 rounded-2xl hover:bg-white/20 transition-all duration-300 group"
-              >
-                <div className="text-purple-400 mb-6 group-hover:scale-110 transition-transform duration-300">
-                  {service.icon}
-                </div>
-                <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
-                <p className="text-gray-300 mb-6">{service.description}</p>
+            {services.map((service, index) => {
+              const gradientMap = {
+                blue: "from-blue-500 to-blue-600",
+                purple: "from-purple-500 to-purple-600",
+                indigo: "from-indigo-500 to-indigo-600",
+                cyan: "from-cyan-500 to-cyan-600",
+                teal: "from-teal-500 to-teal-600",
+                sky: "from-sky-500 to-sky-600",
+              }
 
-                <ul className="space-y-2 mb-6">
-                  {service.features.map((feature, idx) => (
-                    <li key={idx} className="text-gray-400 flex items-center">
-                      <span className="w-2 h-2 bg-purple-400 rounded-full mr-3"></span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
+              const gradient = gradientMap[service.color] || "from-blue-500 to-blue-600"
 
-                <div className="border-t border-gray-700 pt-6">
-                  <div className="text-lg font-semibold text-purple-400 mb-4">{service.price}</div>
-                  <a
-                    href="/contact"
-                    className="w-full bg-gradient-to-r from-purple-500 to-cyan-500 text-white py-3 px-6 rounded-lg font-semibold hover:from-purple-600 hover:to-cyan-600 transition-all duration-300 block text-center"
-                  >
-                    Get Quote
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Local Clients Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-black to-gray-900">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4">
-              Trusted by Businesses Across <span className="gradient-text">Jharkhand</span>
-            </h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-              We have helped hundreds of businesses in Ranchi and throughout Jharkhand achieve their digital marketing
-              goals.
-            </p>
-          </div>
-
-          <div className="glass-effect p-8 rounded-lg">
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
-              {localClients.map((client, index) => (
-                <div key={index} className="text-center p-4">
-                  <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
-                    {client.charAt(0)}
+              return (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                >
+                  <div className={`bg-gradient-to-r ${gradient} p-8 text-white`}>
+                    <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
+                      {service.icon}
+                    </div>
+                    <h3 className="text-2xl font-bold mb-2">{service.title}</h3>
+                    <p className="text-white/90 text-sm">{service.description}</p>
                   </div>
-                  <p className="text-gray-300">{client}</p>
+
+                  <div className="p-6">
+                    <ul className="space-y-2 mb-6">
+                      {service.features.map((feature, idx) => (
+                        <li key={idx} className="text-gray-700 flex items-center">
+                          <CheckCircle className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+                          <span>{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+
+                    <div className="border-t border-gray-200 pt-6 flex items-center justify-between">
+                      <div className="text-lg font-semibold text-blue-600">{service.price}</div>
+                      <a
+                        href="/contact"
+                        className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 px-4 rounded-lg font-medium hover:from-blue-700 hover:to-purple-700 transition-all duration-300 text-sm"
+                      >
+                        Get Quote
+                      </a>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10 bg-gradient-to-b from-white to-blue-50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">Our Process</h2>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4 text-gray-800">Our Process</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We follow a proven methodology to ensure successful project delivery and client satisfaction in Ranchi and
               across Jharkhand.
             </p>
@@ -300,40 +325,163 @@ export default function ServicesPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {process.map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4">
+              <div
+                key={index}
+                className="text-center bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300"
+              >
+                <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 text-white">
                   {item.step}
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{item.title}</h3>
-                <p className="text-gray-300">{item.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-gray-800">{item.title}</h3>
+                <p className="text-gray-600">{item.description}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="glass-effect p-12 rounded-2xl">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-6">Ready to Grow Your Business in Ranchi?</h2>
-            <p className="text-xl text-gray-300 mb-8">
-              Let s discuss your digital marketing requirements and create a customized solution for your business in
-              Jharkhand.
+      {/* Local Clients Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4 text-gray-800">
+              Trusted by Businesses Across{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Jharkhand
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We have helped hundreds of businesses in Ranchi and throughout Jharkhand achieve their digital marketing
+              goals.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="/contact"
-                className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-600 hover:to-cyan-600 transition-all duration-300"
-              >
-                Start Your Project
-              </a>
-              <a
-                href="tel:+919693245941"
-                className="border border-purple-500 text-purple-400 px-8 py-4 rounded-lg font-semibold hover:bg-purple-500 hover:text-white transition-all duration-300"
-              >
-                Call Now: +91 9693245941
-              </a>
+          </div>
+
+          <div className="bg-white rounded-2xl shadow-lg p-8">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+              {localClients.map((client, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 bg-blue-50 rounded-xl hover:bg-blue-100 transition-colors duration-300"
+                >
+                  <div className="w-16 h-16 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-4 text-white">
+                    {client.charAt(0)}
+                  </div>
+                  <p className="text-gray-700 font-medium">{client}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10 bg-gradient-to-b from-blue-50 to-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold mb-4 text-gray-800">
+              Why Choose NextBiz for{" "}
+              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                Digital Marketing
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We bring unique advantages to businesses in Ranchi and across Jharkhand.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="text-blue-600 mb-4 flex justify-center">
+                <Star className="w-12 h-12" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-center text-gray-800">Local Market Expertise</h3>
+              <p className="text-gray-600 text-center mb-6">
+                We understand Ranchi s unique market dynamics, consumer behavior, and competitive landscape. Our
+                strategies are tailored specifically for success in Jharkhand.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Deep local market insights</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Jharkhand-specific strategies</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="text-blue-600 mb-4 flex justify-center">
+                <Analytics className="w-12 h-12" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-center text-gray-800">Data-Driven Results</h3>
+              <p className="text-gray-600 text-center mb-6">
+                We focus on measurable outcomes and ROI, ensuring every marketing rupee contributes directly to your
+                business growth in Ranchi and throughout Jharkhand.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Performance tracking</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Transparent reporting</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-md hover:shadow-lg transition-all duration-300">
+              <div className="text-blue-600 mb-4 flex justify-center">
+                <Support className="w-12 h-12" />
+              </div>
+              <h3 className="text-xl font-semibold mb-4 text-center text-gray-800">Dedicated Support</h3>
+              <p className="text-gray-600 text-center mb-6">
+                As a Ranchi-based agency, we provide personalized service and face-to-face consultations that national
+                agencies simply can not match.
+              </p>
+              <div className="space-y-2">
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Dedicated account manager</span>
+                </div>
+                <div className="flex items-center">
+                  <CheckCircle className="w-5 h-5 text-blue-600 mr-2 flex-shrink-0" />
+                  <span className="text-gray-600">Regular strategy meetings</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="max-w-4xl mx-auto text-center">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-1 rounded-3xl shadow-xl">
+            <div className="bg-white p-12 rounded-3xl">
+              <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-gray-800">
+                Ready to Grow Your Business in Ranchi?
+              </h2>
+              <p className="text-xl text-gray-600 mb-8">
+                Let s discuss your digital marketing requirements and create a customized solution for your business in
+                Jharkhand.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                <a
+                  href="/contact"
+                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-8 py-4 rounded-lg font-semibold hover:from-blue-700 hover:to-purple-700 transition-all duration-300 shadow-md"
+                >
+                  Start Your Project
+                </a>
+                <a
+                  href="tel:+919693245941"
+                  className="border border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300 shadow-md"
+                >
+                  Call Now: +91 9693245941
+                </a>
+              </div>
             </div>
           </div>
         </div>
