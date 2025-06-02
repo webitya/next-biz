@@ -476,10 +476,10 @@ export default function ServicesPage() {
                   Start Your Project
                 </a>
                 <a
-                  href="tel:+919693245941"
+                  href="tel:+919117834352"
                   className="border border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-all duration-300 shadow-md"
                 >
-                  Call Now: +91 9693245941
+                  Call Now: +91 9117834352
                 </a>
               </div>
             </div>

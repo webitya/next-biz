@@ -21,11 +21,11 @@ export default function Footer() {
             <div className="space-y-2">
               <div className="flex items-center space-x-2 text-gray-600">
                 <Phone className="w-5 h-5 text-blue-600" />
-                <span>+91 9693245941</span>
+                <span>+91 9117834352</span>
               </div>
               <div className="flex items-center space-x-2 text-gray-600">
                 <WhatsApp className="w-5 h-5 text-blue-600" />
-                <a href="https://wa.me/919693245941" className="hover:text-blue-600 transition-colors">
+                <a href="https://wa.me/919117834352" className="hover:text-blue-600 transition-colors">
                   WhatsApp Us
                 </a>
               </div>

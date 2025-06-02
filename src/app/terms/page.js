@@ -136,8 +136,8 @@ export default function TermsPage() {
                   </li>
                   <li>
                     <strong>Phone:</strong>{" "}
-                    <a href="tel:+919693245941" className="text-purple-400 hover:text-purple-300">
-                      +91 9693245941
+                    <a href="tel:+919117834352" className="text-purple-400 hover:text-purple-300">
+                      +91 9117834352
                     </a>
                   </li>
                   <li>

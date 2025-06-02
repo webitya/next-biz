@@ -115,7 +115,7 @@ export default function RootLayout({ children }) {
               },
               contactPoint: {
                 "@type": "ContactPoint",
-                telephone: "+91-9693245941",
+                telephone: "+91-9117834352",
                 contactType: "customer service",
                 email: "contact@nextbiz.in",
                 areaServed: ["Ranchi", "Jamshedpur", "Dhanbad", "Bokaro", "Hazaribagh", "Jharkhand"],
