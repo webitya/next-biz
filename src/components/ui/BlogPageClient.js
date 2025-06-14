@@ -1,11 +1,13 @@
 "use client"
-import { useState } from "react"
+import { useState, useMemo, useCallback } from "react"
+import Link from "next/link"
 import BlogCard from "./BlogCard"
 import BlogSearch from "./BlogSearch"
 import { Search } from "lucide-react"
 
 export default function BlogPageClient({ blogs }) {
   const [filteredBlogs, setFilteredBlogs] = useState(blogs)
+  const [searchKey, setSearchKey] = useState(0) // Force re-render key
 
   const categories = [
     "All Posts",
@@ -19,9 +21,20 @@ export default function BlogPageClient({ blogs }) {
 
   const featuredPost = blogs[0]
 
-  const handleFilteredResults = (filtered) => {
+  // Use useCallback to prevent unnecessary re-renders
+  const handleFilteredResults = useCallback((filtered) => {
     setFilteredBlogs(filtered)
-  }
+    // Force a re-render by updating the key
+    setSearchKey((prev) => prev + 1)
+  }, [])
+
+  // Memoize the filtered blogs with the search key
+  const memoizedFilteredBlogs = useMemo(() => {
+    return filteredBlogs.map((blog, index) => ({
+      ...blog,
+      _renderKey: `${blog.id || blog.slug}-${searchKey}-${index}`,
+    }))
+  }, [filteredBlogs, searchKey])
 
   return (
     <div className="pt-16 sm:pt-20 bg-gray-50 min-h-screen">
@@ -116,11 +129,12 @@ export default function BlogPageClient({ blogs }) {
 
                 <div className="p-4 sm:p-6">
                   <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3">
-                    {featuredPost.tags.slice(0, 2).map((tag) => (
-                      <span key={tag} className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-md font-medium">
-                        {tag}
-                      </span>
-                    ))}
+                    {featuredPost.tags &&
+                      featuredPost.tags.slice(0, 2).map((tag) => (
+                        <span key={tag} className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-md font-medium">
+                          {tag}
+                        </span>
+                      ))}
                   </div>
 
                   <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-2 sm:mb-3 line-clamp-2">
@@ -138,14 +152,14 @@ export default function BlogPageClient({ blogs }) {
                       <span>{featuredPost.readTime}</span>
                     </div>
 
-                    <a
+                    <Link
                       href={`/blog/${featuredPost.slug}`}
                       className="inline-flex items-center px-3 sm:px-4 py-2 bg-blue-600 text-white rounded-lg text-xs sm:text-sm font-medium hover:bg-blue-700 transition-colors"
                     >
                       <span className="hidden sm:inline">Read More</span>
                       <span className="sm:hidden">Read</span>
                       <span className="ml-1">→</span>
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -167,8 +181,8 @@ export default function BlogPageClient({ blogs }) {
           {filteredBlogs.length > 0 ? (
             <>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                {filteredBlogs.slice(filteredBlogs.length === blogs.length ? 1 : 0).map((blog) => (
-                  <BlogCard key={blog.id} blog={blog} />
+                {memoizedFilteredBlogs.slice(filteredBlogs.length === blogs.length ? 1 : 0).map((blog, index) => (
+                  <BlogCard key={blog._renderKey} blog={blog} index={index} />
                 ))}
               </div>
 
@@ -194,6 +208,7 @@ export default function BlogPageClient({ blogs }) {
               <button
                 onClick={() => {
                   setFilteredBlogs(blogs)
+                  setSearchKey((prev) => prev + 1)
                 }}
                 className="px-4 sm:px-6 py-2.5 sm:py-3 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition-colors text-sm sm:text-base"
               >
