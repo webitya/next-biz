@@ -11,7 +11,7 @@ export default function Loading() {
       {/* Glassmorphism Container */}
       <div className="relative z-10 text-center">
         <div className="bg-white/20 backdrop-blur-lg rounded-3xl shadow-2xl border border-white/30 p-12 max-w-md mx-auto">
-          {/* Service Loading Animation */}
+          {/* Blog Loading Animation */}
           <div className="relative mb-8">
             <div className="relative w-24 h-24 mx-auto">
               <div className="absolute inset-0 rounded-full border-4 border-transparent border-t-orange-500 border-r-white border-b-green-500 animate-spin"></div>
@@ -20,11 +20,15 @@ export default function Loading() {
                 style={{ animationDirection: "reverse", animationDuration: "1.5s" }}
               ></div>
 
-              {/* Service Icon */}
+              {/* Blog Icon */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-blue-700 rounded-full flex items-center justify-center shadow-lg">
                   <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path
+                      fillRule="evenodd"
+                      d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                 </div>
               </div>
@@ -32,9 +36,9 @@ export default function Loading() {
           </div>
 
           <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-orange-600 via-blue-600 to-green-600 bg-clip-text text-transparent">
-            Loading Services
+            Loading Blog
           </h2>
-          <p className="text-gray-700/80 mb-6 font-medium">Preparing our digital marketing solutions...</p>
+          <p className="text-gray-700/80 mb-6 font-medium">Fetching latest insights...</p>
 
           <div className="w-full bg-white/30 rounded-full h-2 mb-4 overflow-hidden">
             <div className="h-full bg-gradient-to-r from-orange-500 via-white to-green-500 rounded-full animate-pulse"></div>
@@ -49,9 +53,9 @@ export default function Loading() {
       </div>
 
       {/* Floating Elements */}
-      <div className="absolute top-20 left-20 w-16 h-16 bg-orange-200/30 backdrop-blur-sm rounded-full animate-float"></div>
+      <div className="absolute top-32 left-32 w-16 h-16 bg-orange-200/30 backdrop-blur-sm rounded-full animate-float"></div>
       <div
-        className="absolute bottom-32 right-32 w-12 h-12 bg-green-200/30 backdrop-blur-sm rounded-full animate-float"
+        className="absolute bottom-40 right-40 w-12 h-12 bg-green-200/30 backdrop-blur-sm rounded-full animate-float"
         style={{ animationDelay: "1s" }}
       ></div>
     </div>
