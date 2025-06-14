@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
-import Image from "next/image"
-import { ArrowBack, AccessTime, Person, Share } from "@mui/icons-material"
 import { blogs } from "../../../data/blogs"
 import BlogCard from "../../../components/ui/BlogCard"
+import BlogPostClient from "../../../components/ui/BlogPostClient"
 
 export async function generateStaticParams() {
   return blogs.map((blog) => ({
@@ -17,12 +16,15 @@ export async function generateMetadata({ params }) {
   if (!blog) {
     return {
       title: "Blog Post Not Found - NextBiz.in",
+      description: "The requested blog post could not be found. Browse our other digital marketing articles.",
     }
   }
 
   return {
-    title: `${blog.title} - NextBiz.in Blog`,
+    title: `${blog.title} | NextBiz.in Blog`,
     description: blog.excerpt,
+    keywords: blog.tags.join(", "),
+    authors: [{ name: blog.author }],
     openGraph: {
       title: blog.title,
       description: blog.excerpt,
@@ -30,11 +32,37 @@ export async function generateMetadata({ params }) {
       publishedTime: blog.date,
       authors: [blog.author],
       tags: blog.tags,
+      url: `https://nextbiz.in/blog/${blog.slug}`,
+      siteName: "NextBiz.in - Digital Marketing Agency Ranchi",
+      images: [
+        {
+          url: blog.image || "https://nextbiz.in/og-blog-default.jpg",
+          width: 1200,
+          height: 630,
+          alt: blog.title,
+        },
+      ],
     },
     twitter: {
       card: "summary_large_image",
       title: blog.title,
       description: blog.excerpt,
+      creator: "@nextbiz",
+      images: [blog.image || "https://nextbiz.in/twitter-blog-default.jpg"],
+    },
+    alternates: {
+      canonical: `https://nextbiz.in/blog/${blog.slug}`,
+    },
+    robots: {
+      index: true,
+      follow: true,
+      googleBot: {
+        index: true,
+        follow: true,
+        "max-video-preview": -1,
+        "max-image-preview": "large",
+        "max-snippet": -1,
+      },
     },
   }
 }
@@ -48,10 +76,10 @@ export default function BlogPost({ params }) {
 
   const relatedPosts = blogs
     .filter((post) => post.id !== blog.id && post.tags.some((tag) => blog.tags.includes(tag)))
-    .slice(0, 2)
+    .slice(0, 3)
 
   return (
-    <div className="pt-20">
+    <div className="pt-20 bg-gray-50 min-h-screen">
       {/* Schema.org structured data */}
       <script
         type="application/ld+json"
@@ -61,11 +89,11 @@ export default function BlogPost({ params }) {
             "@type": "BlogPosting",
             headline: blog.title,
             description: blog.excerpt,
+            image: blog.image || "https://nextbiz.in/blog-default.jpg",
             author: {
               "@type": "Person",
               name: blog.author,
             },
-            datePublished: blog.date,
             publisher: {
               "@type": "Organization",
               name: "NextBiz.in",
@@ -74,101 +102,44 @@ export default function BlogPost({ params }) {
                 url: "https://nextbiz.in/logo.png",
               },
             },
+            datePublished: blog.date,
+            dateModified: blog.date,
             mainEntityOfPage: {
               "@type": "WebPage",
               "@id": `https://nextbiz.in/blog/${blog.slug}`,
             },
+            keywords: blog.tags.join(", "),
+            articleSection: blog.tags[0],
+            wordCount: blog.content.replace(/<[^>]*>/g, "").split(" ").length,
           }),
         }}
       />
 
-      {/* Back Button */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Navigation */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Link
           href="/blog"
-          className="inline-flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors"
+          className="inline-flex items-center space-x-2 text-blue-600 hover:text-blue-700 transition-colors text-sm font-medium"
         >
-          <ArrowBack className="w-5 h-5" />
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
           <span>Back to Blog</span>
         </Link>
       </div>
 
-      {/* Article Header */}
-      <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <header className="mb-12">
-          <div className="flex flex-wrap gap-2 mb-6">
-            {blog.tags.map((tag) => (
-              <span key={tag} className="px-3 py-1 bg-purple-500/20 text-purple-300 text-sm rounded-full">
-                {tag}
-              </span>
-            ))}
-          </div>
-
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-6 leading-tight">{blog.title}</h1>
-
-          <div className="flex items-center justify-between flex-wrap gap-4 text-gray-400">
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <Person className="w-5 h-5" />
-                <span>{blog.author}</span>
-              </div>
-              <div className="flex items-center space-x-2">
-                <AccessTime className="w-5 h-5" />
-                <span>{blog.readTime}</span>
-              </div>
-              <time dateTime={blog.date}>
-                {new Date(blog.date).toLocaleDateString("en-US", {
-                  year: "numeric",
-                  month: "long",
-                  day: "numeric",
-                })}
-              </time>
-            </div>
-
-            <button className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors">
-              <Share className="w-5 h-5" />
-              <span>Share</span>
-            </button>
-          </div>
-        </header>
-
-        {/* Featured Image */}
-        <div className="relative h-64 sm:h-96 mb-12 rounded-2xl overflow-hidden">
-          <Image src={blog.image || "/placeholder.svg"} alt={blog.title} fill className="object-cover" />
-        </div>
-
-        {/* Article Content */}
-        <div className="prose prose-lg prose-invert max-w-none">
-          <div
-            dangerouslySetInnerHTML={{ __html: blog.content }}
-            className="text-gray-300 leading-relaxed [&>h2]:text-2xl [&>h2]:font-bold [&>h2]:text-white [&>h2]:mt-8 [&>h2]:mb-4 [&>h3]:text-xl [&>h3]:font-semibold [&>h3]:text-white [&>h3]:mt-6 [&>h3]:mb-3 [&>p]:mb-6 [&>ul]:mb-6 [&>ol]:mb-6 [&>li]:mb-2"
-          />
-        </div>
-
-        {/* Author Bio */}
-        <div className="glass-effect p-8 rounded-2xl mt-12 mb-12">
-          <h3 className="text-xl font-bold mb-4">About the Author</h3>
-          <div className="flex items-start space-x-4">
-            <div className="w-16 h-16 bg-gradient-to-r from-purple-500 to-cyan-500 rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-xl">{blog.author.charAt(0)}</span>
-            </div>
-            <div>
-              <h4 className="font-semibold text-lg">{blog.author}</h4>
-              <p className="text-gray-300 mt-2">
-                Expert in business technology and digital transformation with years of experience helping companies
-                leverage cutting-edge solutions for growth.
-              </p>
-            </div>
-          </div>
-        </div>
-      </article>
+      {/* Client Component for Interactive Features */}
+      <BlogPostClient blog={blog} />
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <section className="py-20 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-7xl mx-auto">
-            <h2 className="text-2xl font-bold mb-12 text-center">Related Articles</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        <section className="py-12 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-6xl mx-auto">
+            <h2 className="text-xl font-bold mb-6 text-gray-800 flex items-center">
+              <span className="w-2 h-2 bg-blue-600 rounded-full mr-3"></span>
+              Related Articles
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {relatedPosts.map((post) => (
                 <BlogCard key={post.id} blog={post} />
               ))}
@@ -178,16 +149,16 @@ export default function BlogPost({ params }) {
       )}
 
       {/* CTA Section */}
-      <section className="py-20 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="glass-effect p-12 rounded-2xl">
-            <h2 className="text-3xl font-bold mb-6">Ready to Transform Your Business?</h2>
-            <p className="text-xl text-gray-300 mb-8">
+      <section className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl p-8 text-center text-white">
+            <h2 className="text-2xl font-bold mb-4">Ready to Transform Your Business?</h2>
+            <p className="text-blue-100 mb-6">
               Let s discuss how our solutions can help you achieve your business goals.
             </p>
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-purple-500 to-cyan-500 text-white px-8 py-4 rounded-lg font-semibold hover:from-purple-600 hover:to-cyan-600 transition-all duration-300 inline-block"
+              className="inline-flex items-center px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-blue-50 transition-colors"
             >
               Get Started Today
             </Link>
