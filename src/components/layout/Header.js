@@ -12,6 +12,7 @@ export default function Header() {
     { name: "Services", href: "/services" },
     { name: "Blog", href: "/blog" },
     { name: "Contact", href: "/contact" },
+     { name: "Digital Marketing Course", href: "/complete-digital-marketing-course-7999" },
   ]
 
   return (
