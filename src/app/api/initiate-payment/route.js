@@ -8,6 +8,9 @@ const PHONEPE_CONFIG = {
   apiEndpoint: "https://api-preprod.phonepe.com/apis/pg-sandbox/pg/v1/pay",
 }
 
+// In-memory storage for demo (use database in production)
+const userDataStore = new Map()
+
 export async function POST(request) {
   try {
     const body = await request.json()
@@ -16,7 +19,7 @@ export async function POST(request) {
     // Generate unique transaction ID
     const transactionId = `TXN_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
 
-    // Store user data temporarily (in production, use a database)
+    // Store user data temporarily
     const userData = {
       transactionId,
       name,
@@ -27,6 +30,9 @@ export async function POST(request) {
       courseName,
       timestamp: new Date().toISOString(),
     }
+
+    // Store in memory (use database in production)
+    userDataStore.set(transactionId, userData)
 
     // Create PhonePe payment request
     const paymentData = {
@@ -65,9 +71,6 @@ export async function POST(request) {
     const result = await response.json()
 
     if (result.success) {
-      // Store user data with transaction ID (in production, use database)
-      // For now, we'll use a simple in-memory store or file system
-
       return NextResponse.json({
         success: true,
         paymentUrl: result.data.instrumentResponse.redirectInfo.url,
@@ -93,3 +96,6 @@ export async function POST(request) {
     )
   }
 }
+
+// Export the user data store for use in other routes
+export { userDataStore }
