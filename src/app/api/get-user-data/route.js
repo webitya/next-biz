@@ -7,18 +7,50 @@ export async function GET(request) {
     const transactionId = searchParams.get("txn")
 
     if (!transactionId) {
-      return NextResponse.json({ success: false, message: "Transaction ID required" }, { status: 400 })
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Transaction ID is required",
+        },
+        { status: 400 },
+      )
     }
 
     const userData = userDataStore.get(transactionId)
 
     if (!userData) {
-      return NextResponse.json({ success: false, message: "User data not found" }, { status: 404 })
+      return NextResponse.json(
+        {
+          success: false,
+          message: "Transaction data not found or expired",
+        },
+        { status: 404 },
+      )
     }
 
-    return NextResponse.json({ success: true, data: userData })
+    // Return sanitized user data (remove sensitive information)
+    const sanitizedData = {
+      transactionId: userData.transactionId,
+      name: userData.name,
+      email: userData.email,
+      courseName: userData.courseName,
+      amount: userData.amount,
+      status: userData.status,
+      timestamp: userData.timestamp,
+    }
+
+    return NextResponse.json({
+      success: true,
+      data: sanitizedData,
+    })
   } catch (error) {
     console.error("Get user data error:", error)
-    return NextResponse.json({ success: false, message: "Internal server error" }, { status: 500 })
+    return NextResponse.json(
+      {
+        success: false,
+        message: "Internal server error",
+      },
+      { status: 500 },
+    )
   }
 }
